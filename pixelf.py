@@ -75,7 +75,7 @@ def posizione (raggio,angles,marchio1,marchio2,tempo1,tempo2,resolution):
     resolution: risoluzione della macchina PET in nanosecondi [ns]
     Restituisce array contenente i seguenti valori:
     x_medio: miglior valore statistico coordinata x della sorgente di radiazioni
-q    sigma_x: incertezza sul valore x
+    sigma_x: incertezza sul valore x
     y_medio: miglior valore statistico coordinata y della sorgente di radiazioni
     sigma_y: incertezza sul valore y
     """
@@ -87,12 +87,12 @@ q    sigma_x: incertezza sul valore x
     yp2 = y_c[marchio2]
     delta_raggio = 1
     delta_angles = np.pi/len(angles)
-    
+
     delta_xp1 = np.sqrt((raggio*np.sin(angles[marchio1])*delta_angles)**2 + (np.cos(angles[marchio1])*delta_raggio)**2)
     delta_yp1 = np.sqrt((raggio*np.cos(angles[marchio1])*delta_angles)**2 + (np.sin(angles[marchio1])*delta_raggio)**2)
     delta_xp2 = np.sqrt((raggio*np.sin(angles[marchio2])*delta_angles)**2 + (np.cos(angles[marchio2])*delta_raggio)**2)
     delta_yp2 = np.sqrt((raggio*np.cos(angles[marchio2])*delta_angles)**2 + (np.sin(angles[marchio2])*delta_raggio)**2)
-
+    
 
     
     sp1 = constants.c * tempo1 * 10**(-7)
@@ -110,9 +110,9 @@ q    sigma_x: incertezza sul valore x
     const1 = constants.c * 10**(-7) / distanze
     delta_x1 = np.sqrt(((1-const1*tempo1*(1-((xp2-xp1)/distanze)**2))*delta_xp1)**2 +(const1*tempo1 * (1- ((xp2-xp1)/distanze)**2)* delta_xp2)**2 + (const1*tempo1/ (distanze**2) * (yp1-yp2)*(xp2-xp1))**2 * (delta_yp1**2 + delta_yp2**2) + (const1*(xp2-xp1) * resolution)**2)
     delta_y1 = np.sqrt(((1-const1*tempo1*(1-((yp2-yp1)/distanze)**2))*delta_yp1)**2 +(const1*tempo1 * (1- ((yp2-yp1)/distanze)**2)* delta_yp2)**2 + (const1*tempo1/ (distanze**2) * (yp1-yp2)*(xp2-xp1))**2 * (delta_xp1**2 + delta_xp2**2) + (const1*(yp2-yp1) * resolution)**2)
-    delta_x2 = np.sqrt(((1-const1*tempo2*(1-((xp1-xp2)/distanze)**2))*delta_xp2)**2 +(const1*tempo1 * (1- ((xp1-xp2)/distanze)**2)* delta_xp1)**2 + (const1*tempo1/ (distanze**2) * (yp1-yp2)*(xp1-xp2))**2 * (delta_yp1**2 + delta_yp2**2) + (const1**(xp1-xp2) * resolution)**2)
-    delta_y2 = np.sqrt(((1-const1*tempo1*(1-((yp1-yp2)/distanze)**2))*delta_yp2)**2 +(const1*tempo1 * (1- ((yp1-yp2)/distanze)**2)* delta_yp1)**2 + (const1*tempo1/ (distanze**2) * (yp2-yp1)*(xp2-xp1))**2 * (delta_xp1**2 + delta_xp2**2) + (const1*(yp1-yp2) * resolution)**2)
-    
+    delta_x2 = np.sqrt(((1-const1*tempo2*(1-((xp1-xp2)/distanze)**2))*delta_xp2)**2 +(const1*tempo2 * (1- ((xp1-xp2)/distanze)**2)* delta_xp1)**2 + (const1*tempo2/ (distanze**2) * (yp1-yp2)*(xp1-xp2))**2 * (delta_yp1**2 + delta_yp2**2) + (const1*(xp1-xp2) * resolution)**2)
+    delta_y2 = np.sqrt(((1-const1*tempo2*(1-((yp1-yp2)/distanze)**2))*delta_yp2)**2 +(const1*tempo2 * (1- ((yp1-yp2)/distanze)**2)* delta_yp1)**2 + (const1*tempo2/ (distanze**2) * (yp2-yp1)*(xp2-xp1))**2 * (delta_xp1**2 + delta_xp2**2) + (const1*(yp1-yp2) * resolution)**2)
+  
     
     x = np.concatenate((x1,x2))
     y = np.concatenate((y1,y2))    
