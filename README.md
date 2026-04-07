@@ -19,17 +19,17 @@ Nel primo file sono presenti il costruttore degli oggetti Pet con i parametri ne
  
 Sono presenti inoltre, sempre in PET.py i seguenti metodi:
 
- cn: Modifica il numero di rilevatori
+ cn(Numero pixel): Modifica il numero di rilevatori
 
- cr: Modifica raggio macchina PET 
+ cr(Raggio PET): Modifica raggio macchina PET in centimetri [cm]
  
- ct: Modifica risoluzione temporale rilevatori
+ ct(Risoluzione temporale): Modifica risoluzione temporale rilevatori in nanosecondi [ns]
  
- cp: Modifica posizione del punto di emissione di Fotoni
+ cp(x,y): Modifica posizione del punto di emissione di Fotoni. x ed y sono entrambi in centimetri[cm]
 
- cd: Modifica durata diagnostica
+ cd(Tempo): Modifica durata diagnostica. Il tempo è misurato in minuti [min]. Solitamente una diagnosi tramite PET dura tra i 20 ed i 30 minuti.
  
- scan: Inizio diagnosi del paziente
+ scan(): Inizio diagnosi del paziente
  
 L'ultimo metodo permette, insieme alle funzioni presenti nel file pixelf.py, di inziare la diagnosi del paziente e di stimare con precisione la 
 posizione dell'organo, che è stato approssimato a punto.
