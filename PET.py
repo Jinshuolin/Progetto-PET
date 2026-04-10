@@ -121,6 +121,8 @@ class Pet:
         Diagnosi del paziente
 
         """
+
+        print ("Pixel = {:}, Raggio = {:} cm, Risoluzione = {:} ns, Posizione = ({:},{:}) cm, Durata = {:} min".format (self.pixel,self.radius, self.resolution, self.xsorgente, self.ysorgente, self.time))
         
         lambda_ = int((input("Quale tipo di radionuclide è contenuto nell'iniezione? Fluoro_18 = 18, Carbonio_11 = 11 --> ")))
         if lambda_ == 18:
@@ -129,7 +131,7 @@ class Pet:
             lambda_ = 10**6*np.log(2)/20.33 * self.time # Numero di nuclei, costante di decadimento e durata tempo sarebbe 10**12 ma impossibile per il mio computer
         else:
             print ("Errore: non è stato selezionato nessuno dei due radionuclidi disponibili")
-
+        print ("Diagnosi in corso...")
         numero_fotoni = np.random.poisson (lambda_)
         angles = np.random.uniform (-np.pi/2, np.pi/2, numero_fotoni)
         # Forma normale ax^2 + bx +c
