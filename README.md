@@ -1,7 +1,7 @@
 # Progetto-PET
 Progetto PET Metodi Computazionali Fisica
 
-Saranno Presenti nella repository due file : PET.py e pixelf.py
+Saranno Presenti nella repository tre file : PET.py,pixelf.py e main.py
 
 Nel primo file sono presenti il costruttore degli oggetti Pet con i parametri nel seguente ordine: 
 
