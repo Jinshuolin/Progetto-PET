@@ -206,5 +206,6 @@ class Pet:
         plt.title ("Risultati della diagnosi")
         plt.xlabel ("X [cm]")
         plt.ylabel ("Y [cm]")
+        plt.axis("equal")
         plt.show()
     
